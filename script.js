@@ -1,5 +1,8 @@
+/* ===============================
+   EMAILJS CONFIG
+================================ */
 (function () {
-  emailjs.init("fp2ihnbxtgJ9bg1at"); // 👈 EXACT public key
+  emailjs.init("fp2ihnbxtgJ9bg1at"); // Public Key
 })();
 
 document.getElementById("contact-form").addEventListener("submit", function (e) {
@@ -9,29 +12,71 @@ document.getElementById("contact-form").addEventListener("submit", function (e) 
   status.innerText = "Sending...";
   status.style.color = "#333";
 
-  emailjs
-    .sendForm(
-      "service_1tr6gbr",   // 👈 service_xxxxx
-      "template_2beo738",  // 👈 template_xxxxx
-      this
-    )
-    .then(
-      function () {
-        status.innerText = "Message sent successfully!";
-        status.style.color = "green";
-        document.getElementById("contact-form").reset();
-      },
-      function (error) {
-        status.innerText = "Failed to send message.";
-        status.style.color = "red";
-        console.error("EmailJS Error:", error);
-        alert("EmailJS Error: " + error.text);
-      }
-    );
+  emailjs.sendForm(
+    "service_1tr6gbr",
+    "template_2beo738",
+    this
+  ).then(
+    function () {
+      status.innerText = "Message sent successfully!";
+      status.style.color = "green";
+      document.getElementById("contact-form").reset();
+    },
+    function (error) {
+      status.innerText = "Failed to send message.";
+      status.style.color = "red";
+      console.error("EmailJS Error:", error);
+      alert("EmailJS Error: " + error.text);
+    }
+  );
 });
-/* Typing Effect */
+
+
+/* ===============================
+   TYPING TEXT EFFECT
+================================ */
 const words = [
-  "Aspiring Data Analyst with strong proficiency in MS Excel, MySQL, Power BI",
-  // "Designing User Interfaces",
-  // "Crafting Web Solutions"
+  "Aspiring Data Analyst",
+  "Excel • Power BI • MySQL",
+  "Turning Data into Insights"
 ];
+
+let wordIndex = 0;
+let charIndex = 0;
+let isDeleting = false;
+
+const typingElement = document.getElementById("typing-text");
+
+const typingSpeed = 120;
+const deletingSpeed = 60;
+const holdAfterTyping = 3000; // 3 sec
+const holdAfterDeleting = 800; // 1 sec
+
+function typeEffect() {
+  if (!typingElement) return; // safety check
+
+  const currentWord = words[wordIndex];
+
+  if (!isDeleting) {
+    typingElement.textContent = currentWord.substring(0, charIndex + 1);
+    charIndex++;
+
+    if (charIndex === currentWord.length) {
+      setTimeout(() => isDeleting = true, holdAfterTyping);
+      return;
+    }
+  } else {
+    typingElement.textContent = currentWord.substring(0, charIndex - 1);
+    charIndex--;
+
+    if (charIndex === 0) {
+      isDeleting = false;
+      wordIndex = (wordIndex + 1) % words.length;
+      setTimeout(() => {}, holdAfterDeleting);
+    }
+  }
+
+  setTimeout(typeEffect, isDeleting ? deletingSpeed : typingSpeed);
+}
+
+document.addEventListener("DOMContentLoaded", typeEffect);
