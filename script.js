@@ -29,3 +29,9 @@ document.getElementById("contact-form").addEventListener("submit", function (e) 
       }
     );
 });
+/* Typing Effect */
+const words = [
+  "Aspiring Data Analyst with strong proficiency in MS Excel, MySQL, Power BI",
+  // "Designing User Interfaces",
+  // "Crafting Web Solutions"
+];
