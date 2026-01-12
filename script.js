@@ -36,9 +36,7 @@ document.getElementById("contact-form").addEventListener("submit", function (e) 
    TYPING TEXT EFFECT
 ================================ */
 const words = [
-  "Aspiring Data Analyst",
-  "Excel • Power BI • MySQL",
-  "Turning Data into Insights"
+  "Aspiring Data Analyst with strong proficiency in MS Excel, MySQL, Power BI",
 ];
 
 let wordIndex = 0;
