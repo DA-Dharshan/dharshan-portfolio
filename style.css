@@ -109,7 +109,7 @@ footer {
 
 #typing-text::after {
   content: "|";
-  margin-left: 5px;
+  margin-left: 6px;
   animation: blink 1s infinite;
 }
 
