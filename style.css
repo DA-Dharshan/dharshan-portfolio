@@ -12,10 +12,25 @@ body {
 }
 
 .hero {
-  min-height: 100vh;
-  background: linear-gradient(120deg, #0f2027, #203a43, #2c5364);
-  color: #fff;
-  padding: 20px;
+  min-height: 60vh; /* 60% desktop height */
+  padding: 80px 60px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  /* Background Image */
+  background: 
+    linear-gradient(
+      rgba(15, 32, 39, 0.85),
+      rgba(32, 58, 67, 0.85),
+      rgba(44, 83, 100, 0.85)
+    ),
+    url("assets/hero-bg.jpg");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 nav {
@@ -307,3 +322,12 @@ footer {
     margin-top: 15px;
   }
 }
+
+@media (max-width: 768px) {
+  .hero {
+    min-height: 100vh; /* full screen on mobile */
+    padding: 60px 20px;
+    background-position: center top;
+  }
+}
+
