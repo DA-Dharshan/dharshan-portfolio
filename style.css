@@ -14,11 +14,74 @@ body {
 }
 
 /* ===============================
-   HERO SECTION
+   NAVBAR (FIXED TOP)
+================================ */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 15px 60px;
+  z-index: 1000;
+
+  background: transparent;
+}
+
+.logo,
+.cursive-name {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 22px;
+}
+
+.nav-links a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #ff4d5a;
+}
+
+.social-icons a {
+  color: #ffffff;
+  font-size: 1.1rem;
+  margin-left: 10px;
+  transition: all 0.3s ease;
+}
+
+.social-icons a:hover {
+  color: #ff4d5a;
+  transform: translateY(-2px);
+}
+
+/* ===============================
+   HERO SECTION (60% DESKTOP)
 ================================ */
 .hero {
   min-height: 60vh;
-  padding: 30px 60px;
+  padding: 100px 60px 40px; /* 👈 space for fixed nav */
 
   display: flex;
   flex-direction: column;
@@ -38,66 +101,11 @@ body {
 }
 
 /* ===============================
-   NAVBAR
-================================ */
-nav {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 15px 60px;
-}
-
-.nav-right {
-  display: flex;
-  align-items: center;
-  gap: 25px;
-}
-
-.nav-links {
-  list-style: none;
-  display: flex;
-  gap: 20px;
-}
-
-.nav-links a {
-  color: #ffffff;
-  text-decoration: none;
-  font-weight: 500;
-}
-
-.nav-links a:hover {
-  color: #ff4d5a;
-}
-
-.social-icons a {
-  color: #fff;
-  font-size: 1.1rem;
-  transition: 0.3s;
-}
-
-.social-icons a:hover {
-  color: #ff4d5a;
-  transform: translateY(-2px);
-}
-
-/* ===============================
-   LOGO
-================================ */
-.logo,
-.cursive-name {
-  color: #ffffff;
-  font-family: 'Playfair Display', serif;
-  font-style: italic;
-  font-size: 2.2rem;
-  font-weight: 700;
-}
-
-/* ===============================
    HERO CONTENT
 ================================ */
 .hero-content {
   max-width: 700px;
-  margin-top: 25px; /* PERFECT POSITION */
+  margin-top: 0;
 }
 
 .hero-content h2 {
@@ -105,15 +113,15 @@ nav {
   color: #ffffff;
 }
 
+/* Typing text */
 #typing-text {
   color: #ffffff;
   font-weight: 700;
 }
 
-/* Typing Cursor */
 #typing-text::after {
   content: "|";
-  margin-left: 5px;
+  margin-left: 6px;
   animation: blink 1s infinite;
 }
 
@@ -128,14 +136,22 @@ nav {
 .btn {
   display: inline-block;
   margin-top: 20px;
-  margin-right: 10px;
+  margin-right: 12px;
   padding: 12px 30px;
+
   background: #ff4d5a;
-  color: #fff;
+  color: #ffffff;
   text-decoration: none;
   border-radius: 30px;
   border: none;
   cursor: pointer;
+
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  background: #ff2e3f;
+  transform: translateY(-2px);
 }
 
 /* ===============================
@@ -151,18 +167,20 @@ nav {
   width: 45px;
   height: 45px;
   border-radius: 50%;
-  background: rgba(255,255,255,0.15);
+
+  background: rgba(255,255,255,0.12);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #fff;
+
+  color: #ffffff;
   font-size: 1.2rem;
-  transition: 0.3s;
+  transition: all 0.3s ease;
 }
 
 .hero-social a:hover {
   background: #ff4d5a;
-  transform: translateY(-4px);
+  transform: translateY(-5px);
 }
 
 /* ===============================
@@ -179,9 +197,6 @@ nav {
   background: #f4f6f8;
 }
 
-/* ===============================
-   GRID & CARDS
-================================ */
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -191,10 +206,10 @@ nav {
 
 .card {
   padding: 30px;
-  background: #fff;
+  background: #ffffff;
   border-radius: 12px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-  transition: 0.3s;
+  transition: transform 0.3s;
 }
 
 .card:hover {
@@ -202,7 +217,7 @@ nav {
 }
 
 /* ===============================
-   FORMS
+   FORM
 ================================ */
 form {
   max-width: 500px;
@@ -234,19 +249,14 @@ footer {
 .menu-toggle {
   display: none;
   font-size: 26px;
-  color: #fff;
+  color: #ffffff;
   cursor: pointer;
 }
 
 @media (max-width: 768px) {
 
-  .hero {
-    min-height: 100vh;
-    padding: 25px 20px;
-  }
-
-  .hero-content {
-    margin-top: 20px;
+  nav {
+    padding: 12px 20px;
   }
 
   .menu-toggle {
@@ -258,11 +268,12 @@ footer {
     top: 100%;
     right: 0;
     width: 100%;
-    background: rgba(10, 25, 47, 0.95);
     display: none;
     flex-direction: column;
     align-items: center;
     padding: 20px 0;
+
+    background: rgba(10, 25, 47, 0.95);
   }
 
   .nav-right.active {
@@ -272,5 +283,15 @@ footer {
   .nav-links {
     flex-direction: column;
     gap: 20px;
+  }
+
+  .hero {
+    min-height: 100vh;
+    padding: 90px 20px 40px;
+    background-position: center top;
+  }
+
+  .hero-content h2 {
+    font-size: 2.2rem;
   }
 }
