@@ -37,9 +37,7 @@ document.getElementById("contact-form").addEventListener("submit", function (e) 
 ================================ */
 
 const words = [
-  "Aspiring Data Analyst",
-  "MS Excel • MySQL • Power BI",
-  "Turning Data into Insights"
+  "Aspiring Data Analyst,MS Excel,MySQL,Power BI.Turning Data into Insights",
 ];
 
 let wordIndex = 0;
