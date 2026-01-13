@@ -295,3 +295,35 @@ footer {
     font-size: 2.2rem;
   }
 }
+
+/* ===============================
+   DOWNLOAD BUTTON ANIMATION
+================================ */
+
+.download-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Icon animation */
+.download-icon {
+  animation: bounceDownload 1.6s infinite;
+}
+
+/* Hover effect: pause animation + glow */
+.download-btn:hover .download-icon {
+  animation-play-state: paused;
+  transform: translateY(2px);
+}
+
+/* Keyframes */
+@keyframes bounceDownload {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(6px);
+  }
+}
+
