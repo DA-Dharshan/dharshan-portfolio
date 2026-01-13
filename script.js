@@ -33,11 +33,11 @@ document.getElementById("contact-form").addEventListener("submit", function (e) 
 
 
 /* ===============================
-   TYPING TEXT EFFECT (LOOPING)
+   TYPING TEXT EFFECT (INFINITE LOOP)
 ================================ */
 
 const words = [
-  "Aspiring Data Analyst,MS Excel,MySQL,Power BI.Turning Data into Insights",
+  "Aspiring Data Analyst, MS Excel, MySQL, Power BI. Turning Data into Insights"
 ];
 
 let wordIndex = 0;
@@ -46,10 +46,10 @@ let isDeleting = false;
 
 const typingElement = document.getElementById("typing-text");
 
-const typingSpeed = 120;     // typing speed
-const deletingSpeed = 60;   // deleting speed
-const holdAfterTyping = 3000; // 3 sec pause
-const holdAfterDeleting = 1000; // 1 sec pause
+const typingSpeed = 120;
+const deletingSpeed = 60;
+const holdAfterTyping = 3000;
+const holdAfterDeleting = 1000;
 
 function typeEffect() {
   if (!typingElement) return;
@@ -72,8 +72,6 @@ function typeEffect() {
 
     if (charIndex === 0) {
       isDeleting = false;
-      wordIndex = (wordIndex + 1) % words.length;
-
       setTimeout(() => {}, holdAfterDeleting);
     }
   }
@@ -83,30 +81,16 @@ function typeEffect() {
 
 document.addEventListener("DOMContentLoaded", typeEffect);
 
+
 /* ===============================
    MOBILE MENU TOGGLE
 ================================ */
+
 const menuToggle = document.getElementById("menu-toggle");
-
-/* ===============================
-   FORCE TYPING LOOP (ADD-ON)
-================================ */
-
-setInterval(() => {
-  // reset typing state safely
-  charIndex = 0;
-  isDeleting = false;
-
-  // clear text so typing restarts cleanly
-  if (typingElement) {
-    typingElement.textContent = "";
-  }
-
-}, 8000); // restart every 8 seconds
-
 const navRight = document.querySelector(".nav-right");
 
-menuToggle.addEventListener("click", () => {
-  navRight.classList.toggle("active");
-});
-
+if (menuToggle) {
+  menuToggle.addEventListener("click", () => {
+    navRight.classList.toggle("active");
+  });
+}
