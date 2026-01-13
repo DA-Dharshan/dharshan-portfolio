@@ -33,10 +33,13 @@ document.getElementById("contact-form").addEventListener("submit", function (e) 
 
 
 /* ===============================
-   TYPING TEXT EFFECT
+   TYPING TEXT EFFECT (LOOPING)
 ================================ */
+
 const words = [
-  "Aspiring Data Analyst with strong proficiency in MS Excel, MySQL, Power BI",
+  "Aspiring Data Analyst",
+  "MS Excel • MySQL • Power BI",
+  "Turning Data into Insights"
 ];
 
 let wordIndex = 0;
@@ -45,13 +48,13 @@ let isDeleting = false;
 
 const typingElement = document.getElementById("typing-text");
 
-const typingSpeed = 120;
-const deletingSpeed = 60;
-const holdAfterTyping = 3000; // 3 sec
-const holdAfterDeleting = 800; // 1 sec
+const typingSpeed = 120;     // typing speed
+const deletingSpeed = 60;   // deleting speed
+const holdAfterTyping = 3000; // 3 sec pause
+const holdAfterDeleting = 1000; // 1 sec pause
 
 function typeEffect() {
-  if (!typingElement) return; // safety check
+  if (!typingElement) return;
 
   const currentWord = words[wordIndex];
 
@@ -60,7 +63,9 @@ function typeEffect() {
     charIndex++;
 
     if (charIndex === currentWord.length) {
-      setTimeout(() => isDeleting = true, holdAfterTyping);
+      setTimeout(() => {
+        isDeleting = true;
+      }, holdAfterTyping);
       return;
     }
   } else {
@@ -70,6 +75,7 @@ function typeEffect() {
     if (charIndex === 0) {
       isDeleting = false;
       wordIndex = (wordIndex + 1) % words.length;
+
       setTimeout(() => {}, holdAfterDeleting);
     }
   }
