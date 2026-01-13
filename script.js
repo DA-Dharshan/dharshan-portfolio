@@ -33,7 +33,7 @@ document.getElementById("contact-form").addEventListener("submit", function (e) 
 
 
 /* ===============================
-   TYPING TEXT EFFECT (INFINITE LOOP)
+   TYPING TEXT EFFECT (PERFECT LOOP)
 ================================ */
 
 const words = [
@@ -48,8 +48,8 @@ const typingElement = document.getElementById("typing-text");
 
 const typingSpeed = 120;
 const deletingSpeed = 60;
-const holdAfterTyping = 3000;
-const holdAfterDeleting = 1000;
+const holdAfterTyping = 3000;   // ✅ wait 3 sec
+const holdAfterDeleting = 1000; // ✅ wait 1 sec
 
 function typeEffect() {
   if (!typingElement) return;
@@ -63,6 +63,7 @@ function typeEffect() {
     if (charIndex === currentWord.length) {
       setTimeout(() => {
         isDeleting = true;
+        typeEffect(); // 🔑 resume after pause
       }, holdAfterTyping);
       return;
     }
@@ -71,8 +72,12 @@ function typeEffect() {
     charIndex--;
 
     if (charIndex === 0) {
-      isDeleting = false;
-      setTimeout(() => {}, holdAfterDeleting);
+      setTimeout(() => {
+        isDeleting = false;
+        wordIndex = (wordIndex + 1) % words.length;
+        typeEffect(); // 🔑 resume after pause
+      }, holdAfterDeleting);
+      return;
     }
   }
 
