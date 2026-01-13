@@ -35,8 +35,12 @@ body {
 
 nav {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
+
+  padding: 20px 60px;   /* 👈 reduced from large padding */
+  position: relative;
+  top: -10px;           /* 👈 moves nav slightly UP */
 }
 
 nav ul {
@@ -330,4 +334,31 @@ footer {
     background-position: center top;
   }
 }
+.logo,
+.cursive-name {
+  color: #ffffff;        /* 👈 force white */
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+}
+#typing-text {
+  color: #ffffff;        /* 👈 white typing text */
+  font-weight: 700;
+}
+/* ===============================
+   HERO TEXT POSITION FIX
+================================ */
+
+.hero-content {
+  max-width: 700px;
+  margin-top: -30px; /* lifts text upward */
+}
+.nav-links a {
+  color: #ffffff;
+  font-weight: 500;
+}
+
+.nav-links a:hover {
+  color: #ff4d5a; /* matches your button color */
+}
+
 
