@@ -87,6 +87,23 @@ document.addEventListener("DOMContentLoaded", typeEffect);
    MOBILE MENU TOGGLE
 ================================ */
 const menuToggle = document.getElementById("menu-toggle");
+
+/* ===============================
+   FORCE TYPING LOOP (ADD-ON)
+================================ */
+
+setInterval(() => {
+  // reset typing state safely
+  charIndex = 0;
+  isDeleting = false;
+
+  // clear text so typing restarts cleanly
+  if (typingElement) {
+    typingElement.textContent = "";
+  }
+
+}, 8000); // restart every 8 seconds
+
 const navRight = document.querySelector(".nav-right");
 
 menuToggle.addEventListener("click", () => {
