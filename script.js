@@ -2,7 +2,7 @@
    EMAILJS CONFIG
 ================================ */
 (function () {
-  emailjs.init("fp2ihnbxtgJ9bg1at"); // Public Key
+  emailjs.init("t9DZ3O_sjs8bNUA8j"); // Public Key
 })();
 
 document.getElementById("contact-form").addEventListener("submit", function (e) {
@@ -13,8 +13,8 @@ document.getElementById("contact-form").addEventListener("submit", function (e) 
   status.style.color = "#333";
 
   emailjs.sendForm(
-    "service_1tr6gbr",
-    "template_2beo738",
+    "service_5saidwe",
+    "template_d57p8mv",
     this
   ).then(
     function () {
