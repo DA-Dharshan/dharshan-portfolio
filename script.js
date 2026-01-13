@@ -78,3 +78,14 @@ function typeEffect() {
 }
 
 document.addEventListener("DOMContentLoaded", typeEffect);
+
+/* ===============================
+   MOBILE MENU TOGGLE
+================================ */
+const menuToggle = document.getElementById("menu-toggle");
+const navRight = document.querySelector(".nav-right");
+
+menuToggle.addEventListener("click", () => {
+  navRight.classList.toggle("active");
+});
+
