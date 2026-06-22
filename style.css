@@ -82,7 +82,7 @@ nav {
 ================================ */
 .hero {
   min-height: 60vh;
-  padding: 100px 60px 40px; /* 👈 space for fixed nav */
+  padding: 160px 60px 40px; /* 👈 space for fixed nav */
 
   display: flex;
   flex-direction: column;
